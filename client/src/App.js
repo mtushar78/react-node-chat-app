@@ -1,6 +1,7 @@
 import io from 'socket.io-client';
 import { useState } from 'react';
 import Chat from './Chat';
+import "./App.css";
 
 const socket = io.connect('http://localhost:3001');
 socket.on("joined_room", data => {
@@ -22,8 +23,8 @@ function App() {
   }
 
   return (
-    <div>
-      <form className="App" onSubmit={joinRoom}>
+    <div className="App">
+      <form  onSubmit={joinRoom}>
         <input type='text' id="name" onChange={(event) => { setName(event.target.value) }}></input>
         <input type='text' id="room" onChange={(event) => { setRoom(event.target.value) }}></input>
         <button type="submit">Join A Room</button>
